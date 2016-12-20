@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SiebelMessage BusinessEvent="ResourceAvailabilityCheck"
+	ErrorCode="1000" ErrorMessage="This is an error message" IntObjectFormat="PORTAL" IntObjectName="PORTAL"
+	MessageId="EAI000000173648673" MessageType="PORTAL">
+	<ListOfTmResourceAvailabilityCheck>
+		<TmCutPremiseIntegration>
+			<AddressId>248243</AddressId>
+			<Id>2-1XV4F0U</Id>
+			<ListOfTmCutAssetMgmt-ServiceMeterIntegration>
+				<TmCutAssetMgmt-ServiceMeterIntegration>
+					<ServicePointInstanceId>HS1007017111</ServicePointInstanceId>
+					<ListOfTmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>ServiceabilityFlag</Name>
+							<Value>Y</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>ResourceabilityFlag</Name>
+							<Value>Y</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>CopperTM</Name>
+							<Value>Y</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>DDP</Name>
+							<Value>SAL_F024_0030</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>LocationDP</Name>
+							<Value>BUILDING FLOOR</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>TypeDP</Name>
+							<Value>VDSL</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>FiberToPremise</Name>
+							<Value>N</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>PremiseType</Name>
+							<Value>MEDIUM COST FLAT</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>SiteNameExchange</Name>
+							<Value>SAL</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>TypeResource</Name>
+							<Value>DP</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>BTUVoicePortCount</Name>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>BTUDataPortCount</Name>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>BTURemainingBW</Name>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>PremiseTypeClass</Name>
+							<Value>Residential</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>CopperCond</Name>
+							<Value>Good</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>BuildingTrunk</Name>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>BTU Indicator</Name>
+							<Value>New</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>Premise Category</Name>
+							<Value>High Rise</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>Cable Type</Name>
+							<Value>Copper</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>NumberChange</Name>
+							<Value>N</Value>
+						</TmAssetMgmt-AssetXaIntegration>
+						<TmAssetMgmt-AssetXaIntegration>
+							<Name>PPPTAGGING</Name>
+						</TmAssetMgmt-AssetXaIntegration>
+					</ListOfTmAssetMgmt-AssetXaIntegration>
+					<TMNewBTUFlag>Y</TMNewBTUFlag>
+					<TMServiceTaxFlag>N</TMServiceTaxFlag>
+					<TMHSBASendEmailFlag>N</TMHSBASendEmailFlag>
+					<TMHSBABWThreshold>Current</TMHSBABWThreshold>
+				</TmCutAssetMgmt-ServiceMeterIntegration>
+			</ListOfTmCutAssetMgmt-ServiceMeterIntegration>
+		</TmCutPremiseIntegration>
+	</ListOfTmResourceAvailabilityCheck>
+</SiebelMessage>

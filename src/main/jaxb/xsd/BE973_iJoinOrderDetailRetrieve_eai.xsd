@@ -1,0 +1,158 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.siebel.com/xml/iJoinOrderDetailRetrieveRequest">
+    <xsd:element name="iJoinOrderDetailRetrieveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BusinessEvent" fixed="iJoinOrderDetailRetrieve">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="30"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="Timestamp">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="Source">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:length value="10"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MessageId">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:length value="15"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="Request">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="MobileNumber">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="40"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="OrderNumber" minOccurs="1">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="30"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="iJoinOrderDetailRetrieveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element fixed="" name="BusinessEvent">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="Timestamp">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MessageId">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="15"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ErrorCode">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="30"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ErrorMessage">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:maxLength value="2000"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="Response">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="MobileNumber" minOccurs="1">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="40"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="OrderNumber">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="30"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="OrderStatus">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="30"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="CustomerSiebelRowId">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="15"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="SwiftFulfillmentFlag">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="1"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="SlotStatus">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="30"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="DateAndTimeInstallation">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string"/>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="InstallerName">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string"/>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="InstallerMobileNumber">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:maxLength value="40"/>
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

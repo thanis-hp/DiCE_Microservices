@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">
+  <xsd:element name="OpenAPIInput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="SMS"  minOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="mid" type="xsd:string" minOccurs="1"/>
+              <xsd:element name="BusinessEventMain" type="xsd:string"
+                           minOccurs="1"/>
+              <xsd:element name="MobileNum" type="xsd:string" minOccurs="1"/>
+              <xsd:element name="SMSMessage" type="xsd:string" minOccurs="1"/>
+              <xsd:element name="Source" type="xsd:string" minOccurs="1"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SendSMS">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="mid" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="MobileNum" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="status" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="error_desc" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

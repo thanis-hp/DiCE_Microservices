@@ -1,0 +1,27 @@
+<ehcache name="tmPortalEhCache" maxBytesLocalHeap="1g" timeToIdleSeconds="300" timeToLiveSeconds="600">
+
+	<!-- TM Portal Address Cache -->
+	<cache name="postCodeCache" eternal="false"
+	memoryStoreEvictionPolicy="LRU" overflowToDisk="false"
+	maxBytesLocalHeap="24m" />
+
+	<cache name="streetNameCache" eternal="false"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="false"
+		maxBytesLocalHeap="200m" />
+
+	<cache name="buildingNameCache" eternal="false"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="false"
+		maxBytesLocalHeap="200m" />
+
+	<cache name="floorNumberCache" eternal="false"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="false"
+		maxBytesLocalHeap="200m" />
+
+	<cache name="unitNumberHighRiseCache" eternal="false"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="false"
+		maxBytesLocalHeap="200m" />
+
+	<cache name="unitNumberLandedCache" eternal="false"
+		memoryStoreEvictionPolicy="LRU" overflowToDisk="false"
+		maxBytesLocalHeap="200m" />
+</ehcache>

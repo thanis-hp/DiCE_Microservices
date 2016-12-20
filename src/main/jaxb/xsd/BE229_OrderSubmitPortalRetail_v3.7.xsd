@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/OrderSubmitPortalRetail"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://hsbbportal.tm.com/xml/OrderSubmitPortalRetail" elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+  <xsd:element name="PortalMessage" type="xsdLocal:PortalMessage"/>
+  <xsd:complexType name="PortalMessage">
+    <xsd:sequence>
+      <xsd:element name="Header" type="xsdLocal:Header"/>
+      <xsd:element name="Request" type="xsdLocal:Request" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Header">
+    <xsd:sequence>
+      <xsd:element name="BusinessEvent" type="xsd:string"/>
+      <xsd:element name="Timestamp" type="xsd:string"/>
+      <xsd:element name="MessageId" type="xsd:string" />
+      <xsd:element name="ReqResType">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Request"/>
+            <xsd:enumeration value="Response"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="ErrorCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ErrorMessage" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Request">
+    <xsd:sequence>
+      <xsd:element name="PortalTransactionID" type="xsd:string"/>
+      <xsd:element name="ServicePointId" type="xsd:string"/>
+      <xsd:element name="CustomerAccountNo" type="xsd:string"/>
+      <xsd:element name="AgreementID" type="xsd:string"/>
+      <xsd:element name="BillingAccountNo" type="xsd:string"/>
+      <xsd:element name="BillingAccountRowId" type="xsd:string"/>
+      <xsd:element name="BillingProfileRowId" type="xsd:string"/>
+      <xsd:element name="PriceList" type="xsd:string"/>
+      <xsd:element name="WholesalerLoginId" type="xsd:string"/>
+      <xsd:element name="WholesalerEmail" type="xsd:string"/>
+      <xsd:element name="ServiceProviderPricelist" type="xsd:string"/>
+      <xsd:element name="OrderType" type="xsd:string"/>
+      <xsd:element name="PromotionCode" type="xsd:string"/>
+      <xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IPAddress" type="xsd:string"/>
+      <xsd:element name="PortalReservationID" type="xsd:string"/>
+      <xsd:element name="SourcePortal" type="xsd:string"/>
+      <xsd:element name="Level1PartnerOutletCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level1PartnerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level2PartnerOutletCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level2PartnerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level3PartnerOutletCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level3PartnerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level4PartnerOutletCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level4PartnerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level5PartnerOutletCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Level5PartnerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PartnerCompanyName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PartnerOrderCategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BTUIndicator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PremiseCategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CableType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TMWaivePSTNFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SubOrderType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AccessTechnologyType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SiteNameExchange" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReasonCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TMPromotionName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TMPromotionStartDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TMPromotionEndDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PackageName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpsellingDiscountPartNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LARSProfileEnroll" type="xsd:string"/>
+      <xsd:element name="HyppTvDiscountPartNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MobilityTagging" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CommissionToOutletCode" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Same value as the outlet code in the lowest partner hierarchy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CommissionToID" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Same value as the partner code in the lowest partner hierarchy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CommissionToName" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The name of the partner in the lowest partner hierarchy</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ContactID" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+            ContactID from CustomerCreateCRM
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UpgradeStreamyx" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            "Y" or "N"
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TerminateStreamyx" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            "Y" or "N"
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TerminateStreamyxPhoneNumber" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            "Y" or "N"
+            Terminate the POTS (for streamyx)
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StreamyxLogin" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Streamyx Login to be terminated
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StreamyxPhoneNumber" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Phone Number (for Streamyx/iCare) to be terminated
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ServicePointID" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            To be sent for Modify HSBA BTU
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="OrderLineItems" type="xsdLocal:LineItem" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LineItem">
+    <xsd:sequence>
+      <xsd:element name="ActionCode" type="xsdLocal:ActionCode"/>
+      <xsd:element name="AssetID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PartNum" type="xsd:string"/>
+      <xsd:element name="IntegrationID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ProductType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CommercialName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="VLANId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="VLANType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Bandwidth" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UploadBandwidth" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CommitmentRefreshFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TMIPTVBillingStartDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AgreementId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="WaiveFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Price" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PromoID" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+            For New Install, set to string PROMOTION
+            For modify, set to PromoID that needs to be retrieved during ServiceDetailsRetrieve
+            PromoID will identify the MOLI against the Bundle. PromoID in the Bundle line item will be stored in
+            IntegrationID
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PromoPartNum" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Part Number of the Bundle (Promotion)
+            Only populate for MOLI level products
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Quantity" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Default to 1
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WebHostingDomain" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            (Specific to Web Hosting only)
+            Domain name for Web Hosting product
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WebHostingPassword" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            (Specific to Web Hosting only)
+            Password for Web Hosting product
+            Username for Web Hosting product is set in regular ServiceID field
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="HSBANetworkAssetID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="HSBANetworkID" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            For BTU order only. This is the network ID for the HSBA network
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ServiceTax" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            (R2.1 field)
+            "Y" or "N"
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Product" type="xsd:string"/>
+      <xsd:element name="ServiceID" type="xsd:string"/>
+      <xsd:element name="ServicePassword" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TMIPv6EnabledFlag" type="xsd:string"/>
+      <xsd:element name="TMIPV6LANAddress" type="xsd:string"/>
+      <xsd:element name="TMIPV6WANAddress" type="xsd:string"/>
+      <xsd:element name="TMIPV6ReservationStatus" type="xsd:string"/>
+      <xsd:element name="TMRGVersion" type="xsd:string"/>
+      <xsd:element name="DiscountPromotion" type="xsd:string"/>
+      <xsd:element name="DiscountPercentage" type="xsd:string"/>
+      <xsd:element name="DiscountContract" type="xsd:string"/>
+      <xsd:element name="ServicePointID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ATAServicePointID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReservationStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName1Prefix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName1Postfix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName2Prefix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName2Postfix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName3Prefix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName3Postfix" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainNameExisting" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName1Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName2Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DomainName3Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ExistingNewDomainNameFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AssetIntegrationID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BillingAccountNo" type="xsd:string"/>
+      <xsd:element name="BillingAccountRowId" type="xsd:string"/>
+      <xsd:element name="BillingProfileRowId" type="xsd:string"/>
+      <xsd:element name="CFGStateCode" type="xsd:string"/>
+      <xsd:element name="Appointments">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ActivityID" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LineItemXA" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ActionCode" type="xsdLocal:ActionCode"/>
+            <xsd:element name="Name" type="xsd:string"/>
+            <xsd:element name="PreviousValue" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="TextValue" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SubOrderLineItems" type="xsdLocal:LineItem" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ActionCode">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Add"/>
+      <xsd:enumeration value="Update"/>
+      <xsd:enumeration value="Delete"/>
+      <xsd:enumeration value="-"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PortalMessage>
+	<Header>
+		<BusinessEvent>SBLAddressRetrieve</BusinessEvent>
+		<Timestamp>06/15/2015 09:55:48</Timestamp>
+		<ErrorCode />
+		<ErrorMessage />
+	</Header>
+	<Response>
+		<SiebelAddress>
+			<SiebelAddressId>1-1X1GGCA</SiebelAddressId>
+			<OrderExist>N</OrderExist>
+			<City>SKUDAI</City>
+			<Country>MALAYSIA</Country>
+			<PostalCode>81300</PostalCode>
+			<State>JOHOR</State>
+			<Section>TAMAN MUTIARA RINI</Section>
+			<UnitNumber>12</UnitNumber>
+			<AddressId>2729144</AddressId>
+			<StreetName>BAKTI 66</StreetName>
+			<FloorNo>-</FloorNo>
+			<StreetType>JALAN</StreetType>
+			<SmartnessFlag>N</SmartnessFlag>
+			<ResellerMatchFlag />
+			<OpenOrderFlag />
+		</SiebelAddress>
+		<SiebelAddress>
+			<SiebelAddressId>1-1X1GGCA</SiebelAddressId>
+			<OrderExist>N</OrderExist>
+			<City>SKUDAI</City>
+			<Country>MALAYSIA</Country>
+			<PostalCode>81300</PostalCode>
+			<State>JOHOR</State>
+			<Section>TAMAN MUTIARA RINI</Section>
+			<UnitNumber>12</UnitNumber>
+			<AddressId>2729144</AddressId>
+			<StreetName>BAKTI 66</StreetName>
+			<FloorNo>-</FloorNo>
+			<StreetType>JALAN</StreetType>
+			<SmartnessFlag>N</SmartnessFlag>
+			<ResellerMatchFlag />
+			<OpenOrderFlag />
+		</SiebelAddress>
+	</Response>
+</PortalMessage>

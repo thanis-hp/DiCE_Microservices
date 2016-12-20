@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    
+    <!-- Order Background Job beans -->
+    <bean id="orderJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+	  <property name="jobClass" value="my.com.tm.microservices.scheduler.job.OrderBatchJob"/>
+	  <property name="durability" value="true"/>
+	</bean>
+	
+	<bean id="orderTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+	  <property name="jobDetail" ref="orderJobDetail" />
+	  <!-- order batch job - runs every 2 minutes -->
+	  <property name="cronExpression" value="0 0/2 * * * ?" />
+	</bean> 
+	
+	 <!-- Slof Background Job beans -->
+	<bean id="slofJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+	  <property name="jobClass" value="my.com.tm.microservices.scheduler.job.SLOFBatchJob"/>
+	  <property name="durability" value="true"/>
+	</bean>
+	
+	<bean id="slofTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+	  <property name="jobDetail" ref="slofJobDetail" />
+	  <!-- order batch job - runs every day at 12:05am -->
+	  <property name="cronExpression" value="0 5 0 * * ? *" />
+	</bean> 
+    
+    <!-- Quartz Scheduler -->
+    <bean id="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:quartz.properties" />
+	
+		<!-- This name is persisted as SCHED_NAME in db. -->
+		<property name="schedulerName" value="quartzScheduler" />
+		<property name="overwriteExistingJobs" value="true" />
+	
+		<property name="autoStartup" value="true" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="jobFactory">
+			<bean
+				class="my.com.tm.microservices.scheduler.AutowiringSpringBeanJobFactory" />
+		</property>
+	
+		<!-- add both the jobDetail and trigger to the scheduler -->
+		<property name="jobDetails">
+			<list>
+				<ref bean="orderJobDetail" />
+				<ref bean="slofJobDetail" />
+			</list>
+		</property>
+	
+		<property name="triggers">
+			<list>
+				<ref bean="orderTrigger" />
+				<ref bean="slofTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>

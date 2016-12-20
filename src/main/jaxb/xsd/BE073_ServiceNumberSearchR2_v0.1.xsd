@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.siebel.com/xml/TMServiceNumberSearch"
+	xmlns:xsdLocal="http://www.siebel.com/xml/TMServiceNumberSearch"
+	attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xsd:annotation>
+		<xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All
+			rights reserved. Siebel XSD Generation
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="SiebelMessage" type="xsdLocal:SiebelMessage" />
+	<xsd:complexType name="SiebelMessage">
+		<xsd:sequence>
+			<xsd:element name="ListOfTmServiceNumberSearch" type="xsdLocal:ListOfTmServiceNumberSearch"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="MessageId" type="xsd:string" />
+		<xsd:attribute name="MessageType" type="xsd:string" />
+		<xsd:attribute name="IntObjectName" type="xsd:string" />
+		<xsd:attribute name="IntObjectFormat" type="xsd:string" />
+		<xsd:attribute name="BusinessEvent" type="xsd:string" />
+		<xsd:attribute name="Timestamp" type="xsd:string" />
+		<xsd:attribute name="ErrorCode" type="xsd:string" />
+		<xsd:attribute name="ErrorMessage" type="xsd:string" />
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTmServiceNumberSearch">
+		<xsd:sequence>
+			<xsd:element name="TmServiceNumberVbc" type="xsdLocal:TmServiceNumberVbc"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TmServiceNumberVbc">
+		<xsd:sequence>
+			<xsd:element name="OrderLineItemId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ProductTypeTNType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ServiceIdTN" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMSiteNameExchange" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMSearchString" type="xsdLocal:string4"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="string50">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string30">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string100">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string4">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="4" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

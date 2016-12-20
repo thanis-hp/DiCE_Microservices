@@ -1,0 +1,89 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:jee="http://www.springframework.org/schema/jee"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:component-scan base-package="my.com.tm.dice.ipay.microservices" />
+	<context:property-placeholder location="classpath:env.properties" />
+
+	<util:properties id="sqlQueries" location="classpath:sqlQueries.xml" />
+	<util:properties id="appProperties" location="classpath:app.properties" />
+
+	<!-- Enable Spring auto-detection of request end points using annotations -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="my.com.tm.dice.ipay.microservices.util.CustomJacksonObjectMapper" />
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<mvc:interceptors>
+		<bean class="my.com.tm.dice.ipay.microservices.filter.ContextHandlerInterceptor" />
+	</mvc:interceptors>
+
+	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="packagesToScan">
+			<list>
+				<value>my.com.tm.dice.ipay.microservices.generated</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
+		factory-method="custom">
+		<property name="socketTimeout" value="120000" />
+		<property name="connectTimeout" value="5000" />
+	</bean>
+
+	<bean id="requestConfig" factory-bean="requestConfigBuilder"
+		factory-method="build" />
+
+	<bean id="connectionManager"
+		class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager">
+		<property name="defaultMaxPerRoute" value="100" />
+		<property name="maxTotal" value="1000" />
+	</bean>
+
+	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"
+		factory-method="create">
+		<property name="defaultRequestConfig" ref="requestConfig" />
+		<property name="connectionManager" ref="connectionManager"></property>
+	</bean>
+
+	<bean id="httpClient" factory-bean="httpClientBuilder"
+		factory-method="build" />
+
+	<!-- Enable Spring auto-detection of request end points using annotations -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="my.com.tm.dice.ipay.microservices.util.CustomJacksonObjectMapper" />
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!--<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${jndi.ipayDS.name}" />
+	</bean>-->
+	<jee:jndi-lookup id="dataSource" jndi-name="${jndi.ipayDS.name}" expected-type="javax.sql.DataSource" />
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/CustomerCreateCRM"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hsbbportal.tm.com/xml/CustomerCreateCRM"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="PortalMessage" type="xsdLocal:PortalMessage" />
+	<xsd:complexType name="PortalMessage">
+		<xsd:sequence>
+			<xsd:element name="Header" type="xsdLocal:Header" />
+			<xsd:element name="Request" type="xsdLocal:Request"
+				minOccurs="0" />
+			<xsd:element name="Response" type="xsdLocal:Response"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
+			<xsd:element name="BusinessEvent" type="xsd:string" />
+			<xsd:element name="Timestamp" type="xsd:string" />
+			<xsd:element name="ReqResType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Request" />
+						<xsd:enumeration value="Response" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MessageId" type="xsd:string" />
+			<xsd:element name="ErrorCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="ErrorMessage" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="SourcePortal" type="xsd:string" />
+			<xsd:element name="PrimaryIDType" type="xsd:string" />
+			<xsd:element name="PrimaryIDNo" type="xsd:string" />
+			<xsd:element name="BRNFormat" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="BRNType" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PassportCountryOfIssue" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Name" type="xsd:string" />
+			<xsd:element name="PhoneNumber" type="xsd:string" />
+			<xsd:element name="HousePhoneNumber" type="xsd:string" />
+			<xsd:element name="EmailAddress" type="xsd:string" />
+			<xsd:element name="ContactMethod" type="xsd:string" />
+			<xsd:element name="DateOfBirth" type="xsd:string" />
+			<xsd:element name="SegmentGroup" type="xsd:string" />
+			<xsd:element name="Industry" type="xsd:string" />
+			<xsd:element name ="PreferredLanguage" type = "xsd:string"/>
+			<xsd:element name="SpecialTreatmentCode" type="xsd:string" />
+			<xsd:element name="RelationshipCode" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Default to "External" for Consumer/SME
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PriceList" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Default to "TM HSBT/HSBB Price List" for
+						Consumer/SME
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Level1PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level1PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level2PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level2PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level3PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level3PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level4PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level4PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="CustomerAddress" type="xsdLocal:Address" />
+			<xsd:element name="RegisteredAddress" type="xsdLocal:Address" />
+			<xsd:element name="ContactName" type="xsd:string" />
+			<xsd:element name="ContactId" type="xsd:string" />
+			<xsd:element name="iCareCustomerId" type="xsd:string" />
+			<xsd:element name="Contact" type="xsdLocal:ListofContact"
+				maxOccurs="unbounded" />
+			<xsd:element name="LARSProfileEnroll" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListofContact">
+		<xsd:sequence>
+			<xsd:element name="ContactId" type="xsd:string" />
+			<xsd:element name="ContactPreferredContactMethod" type="xsd:string" />
+			<xsd:element name="ContactName" type="xsd:string" />
+			<xsd:element name="ContactCellPhone" type="xsd:string" />
+			<xsd:element name="ContactOfficePhone" type="xsd:string" />
+			<xsd:element name="ContactHomePhone" type="xsd:string" />
+			<xsd:element name="ContactEmailAddress" type="xsd:string" />
+			<xsd:element name="PrimaryFlag" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element name="CustomerAccountNo" type="xsd:string" />
+			<xsd:element name="CustomerContactID" type="xsd:string" />
+			<xsd:element name="Status" type="xsd:string" />
+			<xsd:element name="InstallationContactID" type="xsd:string" />
+			<xsd:element name="Priority" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Address">
+		<xsd:sequence>
+			<xsd:element name="AddressType" type="xsd:string" />
+			<xsd:element name="HouseUnitLot" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Floor" type="xsd:string" minOccurs="0" />
+			<xsd:element name="BuildingName" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="StreetType" type="xsd:string" />
+			<xsd:element name="StreetName" type="xsd:string" />
+			<xsd:element name="Section" type="xsd:string" minOccurs="0" />
+			<xsd:element name="City" type="xsd:string" />
+			<xsd:element name="State" type="xsd:string" />
+			<xsd:element name="Postcode" type="xsd:integer" />
+			<xsd:element name="Country" type="xsd:string" />
+			<xsd:element name="SiebelAddressRowId" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

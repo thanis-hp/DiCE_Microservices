@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="address.discovery.streets">
+		select distinct(STREET_NAME) from TM_SERVICE_AVAILABILITY_CHECK
+		where upper(postcode) =
+		upper(:postCode) and
+		upper(street_type)=upper(:streetType)
+	</entry>
+	<entry key="address.discovery.units">
+		select RESOURCE_INST_ID as
+		"inventoryAddressID",house_unit_lot as "unitNumber" from
+		TM_SERVICE_AVAILABILITY_CHECK where upper(postcode) =
+		upper(:postCode)
+		and
+		upper(street_type)=upper(:streetType) and
+		upper(street_name)=upper(:streetName) and (floor_number is null or floor_number = '-') and
+		building_name is null
+	</entry>
+	<entry key="address.discovery.buildingNames">
+		select distinct(building_name) from
+		TM_SERVICE_AVAILABILITY_CHECK where upper(postcode) =
+		upper(:postCode)
+		and
+		upper(street_type)=upper(:streetType) and
+		upper(street_name)=upper(:streetName) and 
+		building_name is not null
+	</entry>
+	<entry key="address.discovery.floorNumbers">
+		select distinct(floor_number) from
+		TM_SERVICE_AVAILABILITY_CHECK
+		where upper(postcode) =
+		upper(:postCode) and
+		upper(street_type)=upper(:streetType) and
+		upper(street_name)=upper(:streetName) and
+		upper(building_name)=upper(:buildingName) and 
+		floor_number is not null and 
+		floor_number != '-'
+	</entry>
+	<entry key="address.discovery.floorNumbersWithBuildingNameNull">
+		select distinct(floor_number) from
+		TM_SERVICE_AVAILABILITY_CHECK
+		where upper(postcode) =
+		upper(:postCode) and
+		upper(street_type)=upper(:streetType) and 
+		upper(street_name)=upper(:streetName) and building_name is null 
+		and floor_number is not null and floor_number != '-'
+	</entry>
+	<entry key="address.discovery.unitNumbers">
+		select min(RESOURCE_INST_ID) as "inventoryAddressID",
+		house_unit_lot as "unitNumber"
+		from TM_SERVICE_AVAILABILITY_CHECK
+		where upper(postcode) =
+		upper(:postCode) and upper(street_type)=upper(:streetType) and
+		upper(street_name)=upper(:streetName) and
+		upper(building_name)=upper(:buildingName) and
+		upper(floor_number)=upper(:floorNumber) and floor_number is not null
+		and floor_number!='-'
+		group by street_type, street_name, building_name,
+		floor_number,
+		house_unit_lot
+		having count(*)=1
+	</entry>
+	<entry key="address.discovery.unitNumbersWithBuildingNameNull">
+		select min(RESOURCE_INST_ID) as "inventoryAddressID",
+		house_unit_lot as "unitNumber"
+		from
+		TM_SERVICE_AVAILABILITY_CHECK
+		where upper(postcode) =
+		upper(:postCode)
+		and upper(street_type)=upper(:streetType) and
+		upper(street_name)=upper(:streetName) and building_name is null and
+		upper(floor_number)=upper(:floorNumber) and floor_number is not null
+		and floor_number!='-'
+		group by street_type, street_name, floor_number,
+		house_unit_lot
+		having count(*)=1
+	</entry>
+	<entry key="product.fetch.all">
+		select
+		PART_NUMBER,CATEGORY,CHANNEL,CABLE_TYPE,MORE_INFO_URL,DISPLAY_TAGLINE,PRICE_TYPE,PRICE,SEGMENT_NAME,PRODUCT_NAME,SHORT_NAME,DEFAULT_NO,PRODUCT_DISPLAY_NAME
+		from PRODUCT_CATALOG
+		JOIN
+		(select
+		PART_NUMBER,SEGMENT_NAME,PRODUCT_NAME,DEFAULT_NO
+		FROM
+		PRODUCT
+		LEFT JOIN
+		(select PART_NUMBER,SEGMENT_NAME from
+		ELIGIBILITY where
+		(SYSDATE
+		BETWEEN START_DATE AND
+		END_DATE)
+		OR
+		(START_DATE &lt; SYSDATE AND END_DATE
+		IS NULL))
+		USING(PART_NUMBER))
+		USING(PART_NUMBER)
+		WHERE (SEGMENT_NAME IS
+		NULL OR upper(SEGMENT_NAME)=upper(:segment))
+		AND
+		upper(CHANNEL)=upper(:channel)
+	</entry>
+	<entry key="product.fetch.cabletypes">
+		select PART_NUMBER,CABLE_TYPE from
+		PRODUCT_CABLE_TYPES 
+	</entry>
+	<entry key="customer.profile.validation">
+		select PRIMARY_ID_TYPE,PRIMARY_ID from
+		CUSTOMER_WEB_PROFILE where
+		upper(PRIMARY_ID_TYPE)=upper(:idType) and
+		PRIMARY_ID=:idNumber and
+		ROWNUM=1
+	</entry>
+	<entry key="customer.mobile.validation">
+		select COUNT(*) AS MOBILE_COUNT FROM PORTAL_ORDER_BATCH_JOB where
+		MOBILE_NUMBER=:mobileNumber AND EXEC_STATUS = 'SUCCESS'
+	</entry>
+	<entry key="customer.mobile.tac.validation">
+		select COUNT(*) AS MOBILE_COUNT FROM SMS_TRACKING where
+		MOBILE_NUMBER=:mobileNumber AND TRANSACTION_ID=:transactionId AND TAC=:tac
+	</entry>
+	<entry key="customer.mobile.tac.attempts">
+		select COUNT(*) AS MOBILE_COUNT FROM SMS_TRACKING where
+		MOBILE_NUMBER=:mobileNumber AND TRANSACTION_ID=:transactionId
+	</entry>
+	<entry key="customer.mobile.tac.attempts.entry">
+		Insert into SMS_TRACKING
+		(TRANSACTION_ID,MOBILE_NUMBER,TAC,CREATED_DT)
+		values
+		(:transactionId,:customerMobile,:tacNumber,SYSTIMESTAMP)
+	</entry>
+	<entry key="update.mobile.tac.reason.entry">
+		UPDATE SMS_TRACKING SET STATUS=:reason WHERE TRANSACTION_ID = :transactionId AND MOBILE_NUMBER = :customerMobile AND STATUS IS NULL
+	</entry>
+		<entry key="update.sms.response.status.entry">
+		UPDATE SMS_TRACKING SET SMS_STATUS=:reason, SMS_MID=:mid, MODIFIED_DT=SYSTIMESTAMP WHERE TRANSACTION_ID = :transactionId AND MOBILE_NUMBER = :customerMobile AND TAC = :tac
+		</entry>
+	<entry key="address.discovery.forId">
+		select
+		RESOURCE_INST_ID,COUNTRY,STATE,CITY,POSTCODE,STREET_TYPE,STREET_NAME,SECTION,BUILDING_NAME,HOUSE_UNIT_LOT,FLOOR_NUMBER
+		from TM_SERVICE_AVAILABILITY_CHECK where
+		upper(RESOURCE_INST_ID) =
+		upper(:inventoryAddressId)
+	</entry>
+	<entry key="login.transactionid.create">
+		SELECT SEQ_ORDER_ID.nextval from dual
+	</entry>
+	<entry key="progress.entry.create">
+		INSERT INTO
+		PORTAL_AUDIT_SERVICE_CALL(AUDIT_SERVICE_CALL_ID,PART_NUM,
+		REMOTE_HOST,
+		SESSION_ID, PORTAL_TRANSACTION_ID, BE_NAME, UPDATED_DT,
+		ARG_1,ARG_2,ARG_3,ARG_4,ARG_5)
+		VALUES(:auditID,:partNumber,:remoteHost,:sessionID,:transactionID,:beName,SYSDATE,:argument1,:argument2,:argument3,:argument4,:argument5)
+	</entry>
+	<entry key="product.fetch.hierarchy">
+		SELECT prod.part_number AS partNumber,
+		compa.part_number AS parentPartNum,
+		prod.product_name AS productName,
+		prod.product_type AS productType,
+		prod.product_type AS
+		productTypeFromDB, prod.product_level AS levelNo,
+		prod.new_install_visible AS visible,
+		prod.contract AS contract, 
+		prod.appointment_booking AS appointmentBooking, 
+		prod.purchased AS purchased, 
+		prod.product_upgrade AS productUpgrade, 
+		compa.children AS children, 
+		compa.mutually_exclusive AS mutuallyExclusive,
+		compa.mutually_mandatory AS mutuallyMandatory, 
+		prod.default_no AS defaultNo, 
+		prod.min_no AS minNo, 
+		prod.max_no AS maxNo, 
+		prod.TYPE AS typeValue,
+		prod.product_order AS orderValue, 
+		prod.service_id_type AS serviceIdType, 
+		prod.password_length AS passwordLength,
+		prod.cfg_state_code AS cfgStateCode 
+		FROM product prod, compatibility compa 
+		WHERE compa.promotion_part_number = :partNumber 
+		AND prod.new_install = 'Y' 
+		AND prod.default_no = '1' 
+		AND prod.part_number = compa.children 
+		AND current_date &gt;= prod.start_date
+		AND (prod.end_date IS NULL OR current_date &lt;=prod.end_date) 
+		AND (compa.portal_type IS NULL OR compa.portal_type ='CUSTOMER_PORTAL') 
+		ORDER BY levelno, product_name DESC
+	</entry>
+	<entry key="vas.fetch.hierarchy">
+		SELECT prod.part_number AS partNumber,
+		compa.part_number AS parentPartNum,
+		prod.product_name AS productName,
+		prod.cfg_state_code AS cfgStateCode,
+		prod.product_type AS productType,
+		prod.product_type AS
+		productTypeFromDB, prod.product_level AS levelNo,
+		prod.new_install_visible AS visible, prod.contract AS contract,
+		prod.appointment_booking AS appointmentBooking, prod.purchased AS
+		purchased, prod.product_upgrade AS productUpgrade, compa.children AS
+		children, compa.mutually_exclusive AS mutuallyExclusive,
+		compa.mutually_mandatory AS mutuallyMandatory, prod.default_no AS
+		defaultNo, prod.min_no AS minNo, prod.max_no AS maxNo, prod.TYPE AS
+		typeValue, prod.product_order AS orderValue, prod.service_id_type AS
+		serviceIdType, prod.password_length AS passwordLength from
+		compatibility compa, product prod where
+		compa.promotion_part_number = :partNumber and compa.part_number !=
+		:partNumber and compa.CHILDREN = prod.part_number AND current_date
+		&gt;=
+		prod.start_date AND ( prod.end_date IS NULL OR current_date &lt;=
+		prod.end_date ) AND ( compa.portal_type IS NULL OR compa.portal_type =
+		'CUSTOMER_PORTAL' ) and prod.new_install_visible = 'Y' and
+		prod.new_install = 'Y' order by 1
+	</entry>
+	<entry key="product.fetch.one">
+		select
+		PART_NUMBER,CATEGORY,CHANNEL,CABLE_TYPE,MORE_INFO_URL,DISPLAY_TAGLINE,PRICE_TYPE,PRICE,SEGMENT_NAME,PRODUCT_NAME,SHORT_NAME,DEFAULT_NO
+		from PRODUCT_CATALOG
+		JOIN
+		(select
+		PART_NUMBER,SEGMENT_NAME,PRODUCT_NAME,DEFAULT_NO
+		FROM
+		PRODUCT
+		LEFT JOIN
+		(select PART_NUMBER,SEGMENT_NAME from
+		ELIGIBILITY where
+		(SYSDATE
+		BETWEEN START_DATE AND
+		END_DATE)
+		OR
+		(START_DATE &lt; SYSDATE AND END_DATE
+		IS NULL))
+		USING(PART_NUMBER))
+		USING(PART_NUMBER)
+		WHERE PART_NUMBER = :partNumber
+	</entry>
+	<entry key="product.fetch.several">
+		select
+		PART_NUMBER,CATEGORY,CHANNEL,CABLE_TYPE,MORE_INFO_URL,DISPLAY_TAGLINE,PRICE_TYPE,PRICE,SEGMENT_NAME,PRODUCT_NAME,SHORT_NAME,DEFAULT_NO
+		from PRODUCT_CATALOG
+		JOIN
+		(select
+		PART_NUMBER,SEGMENT_NAME,PRODUCT_NAME,DEFAULT_NO
+		FROM
+		PRODUCT
+		LEFT JOIN
+		(select PART_NUMBER,SEGMENT_NAME from
+		ELIGIBILITY where
+		(SYSDATE
+		BETWEEN START_DATE AND
+		END_DATE)
+		OR
+		(START_DATE &lt; SYSDATE AND END_DATE
+		IS NULL))
+		USING(PART_NUMBER))
+		USING(PART_NUMBER)
+		WHERE PART_NUMBER IN ( :partNumbers )
+	</entry>
+	<entry key="login.id.check">
+		select case
+		when exists
+		(select 1 from
+		CUSTOMER_WEB_PROFILE where upper(login_id) = upper(:loginID))
+		then 'Y'
+		else
+		'N'
+		end as rec_exists
+		from dual
+	</entry>
+	<entry key="product.fetch.attributes">
+       SELECT part_number    AS partNumber,   
+               attribute_name AS attributeName,   
+               attribute_type attributeType,   
+               field_value    AS attributeValue,   
+               voice_type     AS voiceType,   
+               default_value  AS defaultValue,
+              MANDATORY_IND as mandatoryind
+        FROM   attributes   
+        WHERE  promotion_part_number IN ( :partNumber, 'ALL' )   
+               AND part_number IN (SELECT children   
+                                   FROM   compatibility   
+                                   WHERE  promotion_part_number = :partNumber)
+               AND start_date &lt;= CURRENT_DATE
+               AND ( end_date IS NULL
+                       OR end_date &gt;= CURRENT_DATE )   
+        ORDER  BY seq,   
+                  attribute_name 
+    </entry>
+    <entry key="product.kill.me">
+        select part_number, '', 'ijoin','FTTH','www.google.com',product_name,'M',0,'CONSUMER',product_name, product_name from product where part_number = :partNumber
+    </entry>
+    <entry key="address.fetch.postcodes">
+		select distinct(postcode)
+		from TM_SERVICE_AVAILABILITY_CHECK
+	</entry>
+    <entry key="addon.fetch.all">
+    	SELECT * 
+    	FROM ADD_ON
+    	WHERE
+    	upper(SEGMENT_NAME)= upper(:segment)
+    	AND 
+    	upper(CHANNEL)=upper(:channel)
+    </entry>
+    
+    <!-- Addtional Residential Voice has to be removed in product hierarchy -->
+    <entry key="product.mutually.mandatory">
+        select MUTUALLY_MANDATORY 
+        from COMPATIBILITY 
+        where
+         CHILDREN IN (:partNumbers)
+        AND PROMOTION_PART_NUMBER=:promotionalPartNumber
+        AND MUTUALLY_MANDATORY IS NOT NULL AND PART_NUMBER != 'PR000272'
+        
+    </entry>  
+      <entry key="product.fetch.mandatory.relationShip">
+        select prod.part_number as partNumber,
+        compa.part_number as parentPartNum,
+        prod.PRODUCT_NAME as productName,
+        prod.appointment_booking AS appointmentBooking,
+        prod.service_id_type AS serviceIdType,
+		prod.cfg_state_code AS cfgStateCode
+        from PRODUCT prod , 
+        (select PART_NUMBER,CHILDREN,PROMOTION_PART_NUMBER 
+        from COMPATIBILITY where CHILDREN IN (:partNumbers) AND PROMOTION_PART_NUMBER=:promotionalPartNumber) compa
+        where prod.part_number = compa.CHILDREN
+    </entry>
+    <entry key="addon.fetch.several">
+		select
+		PART_NUMBER,CATEGORY,CHANNEL,CABLE_TYPE,MORE_INFO_URL,DISPLAY_TAGLINE,PRICE_TYPE,PRICE,SEGMENT_NAME,PRODUCT_NAME,SHORT_NAME
+		from ADD_ON
+		WHERE PART_NUMBER IN ( :partNumbers )
+	</entry>
+
+	<entry key="batch.job.get.orders">
+		SELECT TRANSACTION_ID, ORDER_JSON, BILLING_ACCOUNT_NUMBER, 
+		BILLING_ACCOUNT_ROW_ID, BILLING_PROFILE_ROW_ID, REMOTE_CLIENT_IP
+		FROM PORTAL_ORDER_BATCH_JOB WHERE EXEC_STATUS IS NULL
+	</entry>
+    <entry key="batch.job.create.order">
+		INSERT INTO
+		PORTAL_ORDER_BATCH_JOB(TRANSACTION_ID, ORDER_JSON,
+		BILLING_ACCOUNT_NUMBER, BILLING_ACCOUNT_ROW_ID, BILLING_PROFILE_ROW_ID, REMOTE_CLIENT_IP, MOBILE_NUMBER)
+		VALUES(:transactionId,:orderJSON,:billingAccountNumber,:billingAccountRowId,:billingProfileRowId,:clientIP,:mobileNumber)
+	</entry>
+	<entry key="batch.job.update.status.orders">
+		UPDATE PORTAL_ORDER_BATCH_JOB SET EXEC_STATUS=(:status), MODIFIED_DT=CURRENT_TIMESTAMP
+		WHERE TRANSACTION_ID IN (:transactionIds)
+	</entry>
+	<entry key="progress.entry.audit.id">
+		select SEQ_AUDIT_SERVICE_CALL.nextval 
+		from DUAL
+	</entry>
+	<entry key="progress.args.create">
+		INSERT INTO
+		PORTAL_AUDIT_SERVICE_CALL_ARGS(AUDIT_SERVICE_CALL_ID,ARG_KEY,ARG_VALUE,CREATED_DT)
+		VALUES(:auditID,:argKey,:argValue,SYSDATE)
+	</entry>
+    <entry key="order.reference.create">
+		INSERT INTO
+		ORDER_REFERENCE(PORTAL_TRANSACTION_ID,CUSTOMER_NAME,EMAIL_ID,LOGINID,PRIMARY_ID,
+		PRIMARY_ID_TYPE,ORDER_TYPE,SEGMENT,TM_MAILING_LIST,TM_NOTIFICATION,UPDATED_TIME)
+		VALUES(:transactionID,:customerName,:emailID,:loginID,:primaryID,:primaryIDType,:orderType,:segment,
+		:tmMailingList,:tmNotification,SYSDATE)
+	</entry>
+    <entry key="slof.existing.customer.fetch">
+		select * from SLOF_CUSTOMER_DETAILS WHERE ADDRESS_SERVICEABLE='Y' and DATETIME_CREATED &gt;= trunc(SYSDATE-1)
+	</entry>
+	 <entry key="slof.nonserviceable.address.interested.fetch">
+		select * from SLOF_CUSTOMER_DETAILS WHERE ADDRESS_SERVICEABLE='N' and DATETIME_CREATED &gt;= trunc(SYSDATE-1)
+	</entry>
+	<entry key="slof.existing.customer.entry">
+		Insert into SLOF_CUSTOMER_DETAILS
+		(IC_TYPE,IC_NUMBER,NAME,MOBILE_NUMBER,DOB,EMAILID,PASSPORT_COUNTY_OF_ORIGIN,CITY,COUNTRY,POSTCODE,STATE,STREET_TYPE,STREET_NAME,SECTION,UNIT_NUMBER,FLOOR_NUMBER,BUILDING_NAME,DATETIME_CREATED,ADDRESS_SERVICEABLE, SLOF_REF_NUMBER, SLOF_REASON)
+		values
+		(:icType,:icNumber,:name,:mobileNumber,:dob,:emailid,:passportCountryOfOrigin,:city,:country,:postCode,:state,:streetType,:streetName,:section,:unitNumber,:floorNumber,:buildingName,SYSTIMESTAMP,'Y', :slofRefNumber, :slofReason)
+	</entry>
+	<entry key="slof.nonserviceable.address.interested.entry">
+		Insert into SLOF_CUSTOMER_DETAILS
+		(IC_TYPE,IC_NUMBER,NAME,MOBILE_NUMBER,DOB,EMAILID,PASSPORT_COUNTY_OF_ORIGIN,CITY,COUNTRY,POSTCODE,STATE,STREET_TYPE,STREET_NAME,SECTION,UNIT_NUMBER,FLOOR_NUMBER,BUILDING_NAME,DATETIME_CREATED,ADDRESS_SERVICEABLE, SLOF_REF_NUMBER, SLOF_REASON)
+		values
+		(:icType,:icNumber,:name,:mobileNumber,:dob,:emailid,:passportCountryOfOrigin,:city,:country,:postCode,:state,:streetType,:streetName,:section,:unitNumber,:floorNumber,:buildingName,SYSTIMESTAMP,'N', :slofRefNumber, :slofReason)
+	</entry>
+	<entry key="slof.noaddress.found.entry">
+		Insert into SLOF_NON_SERVICEABLE_ADDRESS
+		(IC_TYPE,IC_NUMBER,NAME,MOBILE_NUMBER,DOB,EMAILID,PASSPORT_COUNTY_OF_ORIGIN,ADDRESS,DATETIME_CREATED,SLOF_REF_NUMBER)
+		values
+		(:icType,:icNumber,:name,:mobileNumber,:dob,:emailid,:passportCountryOfOrigin,:address,SYSTIMESTAMP,:slofRefNumber)
+	</entry>
+	<entry key="slof.noaddress.found.entry.fetch">
+		SELECT *
+		FROM
+		SLOF_NON_SERVICEABLE_ADDRESS WHERE DATETIME_CREATED &gt;= trunc(SYSDATE-1)
+	</entry>
+	<entry key="slof.noaddress.found.slof.ref.fetch">
+		SELECT COUNT(*) AS SLOF_REF_NUMBER
+		FROM SLOF_NON_SERVICEABLE_ADDRESS WHERE DATETIME_CREATED &gt;= trunc(SYSDATE)
+	</entry>
+	<entry key="slof.existing.customer.slof.ref.fetch">
+		SELECT COUNT(*) AS SLOF_REF_NUMBER
+		FROM SLOF_CUSTOMER_DETAILS WHERE DATETIME_CREATED &gt;= trunc(SYSDATE)
+	</entry>
+	<entry key="slof.nonserviceable.address.not.interested.fetch">
+		SELECT *
+		FROM
+		SLOF_NON_SERVICEABLE_ADDRESS WHERE DATETIME_CREATED &gt;= trunc(SYSDATE-1)
+	</entry>
+	<entry key="slof.nonserviceable.address.not.interested.entry">
+		Insert into SLOF_NON_SERVICEABLE_ADDRESS
+		(EMAILID,MOBILE_NUMBER,DATETIME_CREATED) values
+		(:emailid,:mobile_number,SYSTIMESTAMP)
+	</entry>
+	<entry key="email.slof.template.fetch">
+        select SUBJECT,MESSAGE,FROM_EMAIL_ID,MAIL_CONTEXT,SOA_EVENT_NAME from emailconfig where
+        mail_context='IJoinSlofReference'
+    </entry>
+    <entry key="sms.tac.template.fetch">
+        select SUBJECT,SMS_MESSAGE,FROM_EMAIL_ID,MAIL_CONTEXT,SOA_EVENT_NAME from emailconfig where
+        mail_context='IjoinTacPassword'
+    </entry>
+	<entry key="email.template.fetch">
+		select SUBJECT,MESSAGE,FROM_EMAIL_ID,MAIL_CONTEXT,SOA_EVENT_NAME from emailconfig where
+		mail_context='IJoinOrderConfirmation'
+	</entry>
+	<entry key="email.content.store">
+		insert into NOVA_COMMS_STG
+		(ext_id,message_id,ptl_ext_id,subject,
+		body,
+		var8,
+		recipients,
+		sender,
+		status,
+		created_time,
+		notification_type,
+		priority) values (:eventName,nova_comms_unique_id_seq.nextval,:messageID,:subject,:body,:mailContext,:recipients,:sender,:status,SYSDATE,:notificationType,:priority)
+	</entry>
+	<entry key="gst.fetch.active">
+		select VALUE from GST where ACTIVE = 'Y'
+	</entry>
+	<entry key="discount.fetch.active">
+		select discount.PART_NUMBER,discount.PARENT_PART_NUMBER,discount.DISCOUNT_PRICE,
+ 		product.CFG_STATE_CODE,product.PRODUCT_NAME 
+ 		from DISCOUNT discount,PRODUCT product 
+		where product.part_number = discount.part_number 
+		and ACTIVE = 'Y'
+	</entry>
+</properties>

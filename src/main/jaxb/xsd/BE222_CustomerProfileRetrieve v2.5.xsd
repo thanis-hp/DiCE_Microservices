@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/CustomerProfileRetrieve"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hsbbportal.tm.com/xml/CustomerProfileRetrieve"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="PortalMessage" type="xsdLocal:PortalMessage" />
+	<xsd:complexType name="PortalMessage">
+		<xsd:sequence>
+			<xsd:element name="Header" type="xsdLocal:Header" />
+			<xsd:element name="Request" type="xsdLocal:Request"
+				minOccurs="0" />
+			<xsd:element name="Response" type="xsdLocal:Response"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
+			<xsd:element name="BusinessEvent" type="xsd:string" />
+			<xsd:element name="Timestamp" type="xsd:string" />
+			<xsd:element name="ReqResType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Request" />
+						<xsd:enumeration value="Response" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MessageId" type="xsd:string"  />
+			<xsd:element name="ErrorCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="ErrorMessage" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="PrimaryIDType" type="xsd:string" />
+			<xsd:element name="PrimaryIDNo" type="xsd:string" />
+			<xsd:element name="AccountNo" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element name="CustomerAccount" type="xsdLocal:CustomerAccount" />
+			<xsd:element name="ConsumerDemographics" type="xsdLocal:ConsumerDemographics"
+				minOccurs="0" />
+			<xsd:element name="NonConsumerDemographics" type="xsdLocal:NonConsumerDemographics"
+				minOccurs="0" />
+			<xsd:element name="BillingList" type="xsdLocal:BillingList" />
+			<xsd:element name="ContactList" type="xsdLocal:ContactList" />
+			<xsd:element name="CommitmentPeriodList" type="xsdLocal:CommitmentPeriodList" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerAccount">
+		<xsd:sequence>
+			<xsd:element name="AccountNo" type="xsd:string" />
+			<xsd:element name="CustomerName" type="xsd:string" />
+			<xsd:element name="SegmentGroup" type="xsd:string" />
+			<xsd:element name="SegmentCode" type="xsd:string" />
+			<xsd:element name="PrimaryIDType" type="xsd:string" />
+			<xsd:element name="PrimaryIDNo" type="xsd:string" />
+			<xsd:element name="TMExternalSource" type="xsd:string" />
+			<xsd:element name="PassportCountry" type="xsd:string" />
+			<xsd:element name="Blacklist" type="xsd:string" />
+			<xsd:element name="MobilePhone" type="xsd:string" />
+			<xsd:element name="OfficePhone" type="xsd:string" />
+			<xsd:element name="HomePhone" type="xsd:string" />
+			<xsd:element name="EmailAddress" type="xsd:string" />
+			<xsd:element name="FaxNumber" type="xsd:string" />
+			<xsd:element name="ContactMethod" type="xsd:string" />
+			<xsd:element name="Industry" type="xsd:string" />
+			<xsd:element name="Priority" type="xsd:string" />
+			<xsd:element name="Level1PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level1PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level2PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level2PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level3PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level3PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level4PartnerOutletCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Level4PartnerCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="LARSMembershipNo" type="xsd:string" />
+			<xsd:element name="LARSRewardsNo" type="xsd:string" />
+			<xsd:element name="LARSMemberCategory" type="xsd:string" />
+			<xsd:element name="LARSMemberStatus" type="xsd:string" />
+			<xsd:element name="LARSTotalPoint" type="xsd:string" />
+			<xsd:element name="LARSTotalPointDate" type="xsd:string" />
+			<xsd:element name="LARSPointExpiry" type="xsd:string" />
+			<xsd:element name="LARSPointExpiryDate" type="xsd:string" />
+			<xsd:element name="LARSLastEarnTrnDate" type="xsd:string" />
+			<xsd:element name="LARSLastEarnTrnDesc" type="xsd:string" />
+			<xsd:element name="LARSLastEarnTrnPoint" type="xsd:string" />
+			<xsd:element name="LARSLastRedemTrnDate" type="xsd:string" />
+			<xsd:element name="LARSLastRedemTrnDesc" type="xsd:string" />
+			<xsd:element name="LARSLastRedemTrnPoint" type="xsd:string" />
+			<xsd:element name="LARSProfileEnrollFlag" type="xsd:string" />
+			<xsd:element name="ServiceProvider" type="xsd:string" />
+			<xsd:element name="CustomerAddress" type="xsdLocal:Address" />
+			<xsd:element name="RegisteredAddress" type="xsdLocal:Address" />
+			<xsd:element name="CustomerAbbreviation" type="xsd:string" />
+			<xsd:element name="BRNType" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Address">
+		<xsd:sequence>
+			<xsd:element name="TMAddressID" type="xsd:string" />
+			<xsd:element name="AddressType" type="xsd:string" />
+			<xsd:element name="HouseUnitLot" type="xsd:string" />
+			<xsd:element name="Floor" type="xsd:string" />
+			<xsd:element name="BuildingName" type="xsd:string" />
+			<xsd:element name="StreetType" type="xsd:string" />
+			<xsd:element name="StreetName" type="xsd:string" />
+			<xsd:element name="Section" type="xsd:string" />
+			<xsd:element name="City" type="xsd:string" />
+			<xsd:element name="State" type="xsd:string" />
+			<xsd:element name="Postcode" type="xsd:integer" />
+			<xsd:element name="Country" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsumerDemographics">
+		<xsd:sequence>
+			<xsd:element name="Gender" type="xsd:string" />
+			<xsd:element name="Race" type="xsd:string" />
+			<xsd:element name="Occupation" type="xsd:string" />
+			<xsd:element name="JobTitle" type="xsd:string" />
+			<xsd:element name="DateOfBirth" type="xsd:string" />
+			<xsd:element name="Nationality" type="xsd:string" />
+			<xsd:element name="MaritalStatus" type="xsd:string" />
+			<xsd:element name="ChildrenInAge7to21" type="xsdLocal:MVGGroup"
+				maxOccurs="unbounded" />
+			<xsd:element name="MonthlyHouseholdIncome" type="xsd:string" />
+			<xsd:element name="HouseholdSize" type="xsd:string" />
+			<xsd:element name="HouseOwnership" type="xsd:string" />
+			<xsd:element name="Hobbies" type="xsdLocal:MVGGroup"
+				maxOccurs="unbounded" />
+			<xsd:element name="DeviceOwnership" type="xsdLocal:MVGGroup"
+				maxOccurs="unbounded" />
+			<xsd:element name="StayingWith" type="xsd:string" />
+			<xsd:element name="PrimaryFestiveCelebration" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonConsumerDemographics">
+		<xsd:sequence>
+			<xsd:element name="NatureOfBusiness" type="xsd:string" />
+			<xsd:element name="CompanyAnnualRevenue" type="xsd:string" />
+			<xsd:element name="NoOfEmployees" type="xsd:string" />
+			<xsd:element name="NoOfBranches" type="xsd:string" />
+			<xsd:element name="TelcoProductsBesidesTM" type="xsdLocal:MVGGroup"
+				maxOccurs="unbounded" />
+			<xsd:element name="TelcoProductsBesidesTMOthers" type="xsd:string" />
+			<xsd:element name="ServiceProviders" type="xsdLocal:MVGGroup"
+				maxOccurs="unbounded" />
+			<xsd:element name="HeadquarterLocation" type="xsd:string" />
+			<xsd:element name="RetailIndustry" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillingList">
+		<xsd:sequence>
+			<xsd:element name="BillingAccount" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="BillingAccountNo" type="xsd:string" />
+						<xsd:element name="BillingAccountRowID" type="xsd:string" />
+						<xsd:element name="BillingProfileRowID" type="xsd:string" />
+						<xsd:element name="BillingName" type="xsd:string" />
+						<xsd:element name="BillLanguage" type="xsd:string" />
+						<xsd:element name="HsbaBtuFlag" type="xsd:string" />
+						<xsd:element name="BillingAddress" type="xsdLocal:Address" />
+						<xsd:element name="BillAccountStatus" type="xsd:string" />
+						<xsd:element name="BillingCycle" type="xsd:string" />
+						<xsd:element name="BillingSalesPTT" type="xsd:string" />
+						<xsd:element name="BillingType" type="xsd:string" />
+						<xsd:element name="BillMedia" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactList">
+		<xsd:sequence>
+			<xsd:element name="Contact" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ContactID" type="xsd:string" />
+						<xsd:element name="ContactName" type="xsd:string" />
+						<xsd:element name="OfficePhone" type="xsd:string" />
+						<xsd:element name="HomePhone" type="xsd:string" />
+						<xsd:element name="MobilePhone" type="xsd:string" />
+						<xsd:element name="EmailAddress" type="xsd:string" />
+						<xsd:element name="FaxNumber" type="xsd:string" />
+						<xsd:element name="PrimaryContactIndicator" type="xsd:string" />
+						<xsd:element name="ContactPrimaryIdType" type="xsd:string" />
+						<xsd:element name="ContactPrimaryIdNo" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MVGGroup">
+		<xsd:sequence>
+			<xsd:element name="RowId" type="xsd:string" />
+			<xsd:element name="Name" type="xsd:string" />
+			<xsd:element name="Value" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CommitmentPeriodList">
+		<xsd:sequence>
+			<xsd:element name="CommitmentPeriod" minOccurs="0"
+				maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CommitmentName" type="xsd:string"
+							minOccurs="0" maxOccurs="unbounded" />
+						<xsd:element name="CommitmentDuration" type="xsd:string"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PortalMessage>
+	<Header>
+		<BusinessEvent>SBLAddressCreate</BusinessEvent>
+		<Timestamp>06/15/2015 09:58:09</Timestamp>
+		<ReqResType>Response</ReqResType>
+		<ErrorCode />
+		<ErrorMessage />
+	</Header>
+	<Response>
+		<SiebelAddressId>1-4VKUXZ6</SiebelAddressId>
+		<Status>OK</Status>
+	</Response>
+</PortalMessage>

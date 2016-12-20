@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PortalMessage>
+    <Header>
+        <BusinessEvent>CustomerCreateCRM</BusinessEvent>
+        <Timestamp>07/03/2015 11:05:21</Timestamp>
+        <ErrorMessage/>
+        <ErrorCode/>
+        <ReqResType>Response</ReqResType>
+    </Header>
+    <Response>
+        <CustomerAccountNo>2-1XV49HP</CustomerAccountNo>
+        <CustomerContactID>2-1XV49HR</CustomerContactID>
+        <Status>OK</Status>
+        <Priority>P04</Priority>
+    </Response>
+</PortalMessage>

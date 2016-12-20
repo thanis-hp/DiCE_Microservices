@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<SiebelMessage BusinessEvent="ServiceabilityCheck"
+	ErrorMessage="" IntObjectFormat="PORTAL" IntObjectName="PORTAL"
+	MessageId="1300021035281" MessageType="PORTAL" Timestamp="06/15/2015 09:53:13">
+	<ListOfTmServiceabilityCheck>
+		<TmServiceAddressVbc>
+			<AddressId>2809986</AddressId>
+			<ApartmentNumber>1</ApartmentNumber>
+			<TMFloorNo>1</TMFloorNo>
+			<TMBuildingName>WESTIN</TMBuildingName>
+			<TMStreetType>JALAN</TMStreetType>
+			<StreetAddress>BUKIT BINTANG</StreetAddress>
+			<StreetAddress2>BUKIT</StreetAddress2>
+			<PostalCode>12345</PostalCode>
+			<City>KUALA LUMPUR</City>
+			<State>JOHOR</State>
+			<Country>MALAYSIA</Country>
+			<CopperOwnTM>YES</CopperOwnTM>
+			<DDP />
+		</TmServiceAddressVbc>
+	</ListOfTmServiceabilityCheck>
+</SiebelMessage>

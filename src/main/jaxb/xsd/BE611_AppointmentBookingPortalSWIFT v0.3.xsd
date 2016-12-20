@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/AppointmentBookingPortalSWIFT"
+	targetNamespace="http://hsbbportal.tm.com/xml/AppointmentBookingPortalSWIFT"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xsd:element name="PortalMessage" type="xsdLocal:PortalMessage" />
+	<xsd:complexType name="PortalMessage">
+		<xsd:sequence>
+			<xsd:element name="Header" type="xsdLocal:Header"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Request" type="xsdLocal:Request"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Response" type="xsdLocal:Response"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
+			<xsd:element name="BusinessEvent" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="Timestamp" type="xsd:string"
+				minOccurs="1" maxOccurs="1" />
+			<xsd:element name="MessageId" type="xsd:string" />
+			<xsd:element name="ReqResType" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Request" />
+						<xsd:enumeration value="Response" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ErrorCode" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ErrorMessage" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="Order" type="xsdLocal:Order"
+				minOccurs="0" />
+			<xsd:element name="AppointmentBooking" type="xsdLocal:AppointmentBooking"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Order">
+		<xsd:sequence>
+			<xsd:element name="OrderId" type="xsd:string" />
+			<xsd:element name="OrderNumber" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AppointmentBooking">
+		<xsd:sequence>
+			<xsd:element name="AppointmentID" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="SlotStart" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="SlotEnd" type="xsd:string" minOccurs="0" />
+			<xsd:element name="AddressIndicator" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="SecondaryAppointment" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element name="AppointmentActivity" type="xsdLocal:AppointmentActivity"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AppointmentActivity">
+		<xsd:sequence>
+			<xsd:element name="AppointmentActivityId" type="xsd:string" />
+			<xsd:element name="ExternalActivityId" type="xsd:string" />
+			<xsd:element name="ActivityType" type="xsd:string" />
+			<xsd:element name="DateTimeStart" type="xsd:string" />
+			<xsd:element name="DateTimeEnd" type="xsd:string" />
+			<xsd:element name="Duration" type="xsd:string" />
+			<xsd:element name="RNORegion" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<SiebelMessage
+    BusinessEvent = "ValidateFraudCAMSAccount"
+    ErrorCode = ""
+    ErrorMessage = ""
+    IntObjectFormat = "PORTAL"
+    IntObjectName = "PORTAL"
+    MessageId = "EAI000000173648680"
+    Timestamp = "03/07/2015 11:05:08">
+    <ListOfTmCamsAccountIo>
+        <TmCamsAccountVbc>
+            <CustomerID></CustomerID>
+            <BANumber/>
+            <BlacklistType/>
+            <CPBR/>
+            <DelinquentAmount/>
+        </TmCamsAccountVbc>
+    </ListOfTmCamsAccountIo>
+</SiebelMessage>

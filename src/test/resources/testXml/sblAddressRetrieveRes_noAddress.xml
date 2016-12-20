@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PortalMessage>
+	<Header>
+		<BusinessEvent>SBLAddressRetrieve</BusinessEvent>
+		<Timestamp>06/15/2015 09:55:48</Timestamp>
+		<ErrorCode />
+		<ErrorMessage />
+	</Header>
+	<Response>
+
+	</Response>
+</PortalMessage>

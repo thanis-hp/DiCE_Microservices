@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/SWIFTAppointmentCreateSbl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hsbbportal.tm.com/xml/SWIFTAppointmentCreateSbl" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="PortalMessage" type="xsdLocal:PortalMessage"/>
+	<xsd:complexType name="PortalMessage">
+		<xsd:sequence>
+			<xsd:element name="Header" type="xsdLocal:Header"/>
+			<xsd:element name="Request" type="xsdLocal:Request" minOccurs="0"/>
+			<xsd:element name="Response" type="xsdLocal:Response" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
+			<xsd:element name="BusinessEvent" type="xsd:string"/>
+			<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="ReqResType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Request"/>
+						<xsd:enumeration value="Response"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MessageId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ErrorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ErrorMessage" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="ActivityInformation" type="xsdLocal:ActivityInformation" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActivityInformation">
+		<xsd:sequence>
+			<xsd:element name="PlannedStart" type="xsd:string"/>
+            <xsd:element name="PlannedEnd" type="xsd:string"/>
+			<xsd:element name="ActivityType" type="xsd:string"/>
+			<xsd:element name="SWIFTActivityId" type="xsd:string"/>
+			<xsd:element name="Duration" type="xsd:string"/>
+			<xsd:element name="RNORegion" type="xsd:string"/>
+			<xsd:element name="ServicePointId" type="xsd:string"/>
+			<xsd:element name="SBLActivityId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element name="ActivityInformation" type="xsdLocal:ActivityInformation" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

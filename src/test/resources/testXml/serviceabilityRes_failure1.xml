@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<SiebelMessage BusinessEvent="ServiceabilityCheck"
+	ErrorMessage="" IntObjectFormat="PORTAL" IntObjectName="PORTAL"
+	MessageId="1300021035281" MessageType="PORTAL" Timestamp="06/15/2015 09:53:13">
+	<ListOfTmServiceabilityCheck>
+	</ListOfTmServiceabilityCheck>
+</SiebelMessage>

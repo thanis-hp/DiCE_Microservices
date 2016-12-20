@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.siebel.com/xml/TmCamsAccountIo"
+	xmlns:xsLocal="http://www.siebel.com/xml/TmCamsAccountIo"
+	attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="SiebelMessage" type="xsLocal:SiebelMessage" />
+	<xs:complexType name="SiebelMessage">
+		<xs:sequence>
+			<xs:element name="ListOfTmCamsAccountIo" type="xsLocal:ListOfTmCamsAccountIo"
+				minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="BusinessEvent" type="xs:string" />
+		<xs:attribute name="ErrorCode" type="xs:string" />
+		<xs:attribute name="ErrorMessage" type="xs:string" />
+		<xs:attribute name="IntObjectFormat" type="xs:string" />
+		<xs:attribute name="IntObjectName" type="xs:string" />
+		<xs:attribute name="MessageId" type="xs:string" />
+		<xs:attribute name="Timestamp" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="ListOfTmCamsAccountIo">
+		<xs:sequence>
+			<xs:element name="TmCamsAccountVbc" type="xsLocal:TmCamsAccountVbc" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TmCamsAccountVbc">
+		<xs:sequence>
+			<xs:element name="CustomerID" type="xs:string" />
+			<xs:element name="BANumber" type="xs:string" />
+			<xs:element name="BlacklistType" type="xs:string" />
+			<xs:element name="CPBR" type="xs:string" />
+			<xs:element name="DelinquentAmount" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

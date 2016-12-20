@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.siebel.com/xml/TMOrderCreateNew"
+	xmlns:xsdLocal="http://www.siebel.com/xml/TMOrderCreateNew"
+	attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xsd:annotation>
+		<xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All
+			rights reserved. Siebel XSD Generation
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="SiebelMessage" type="xsdLocal:SiebelMessage" />
+	<xsd:complexType name="SiebelMessage">
+		<xsd:sequence>
+			<xsd:element name="ListOfTmOrderCreateNew" type="xsdLocal:ListOfTmOrderCreateNew"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="MessageId" type="xsd:string" />
+		<xsd:attribute name="MessageType" type="xsd:string" />
+		<xsd:attribute name="IntObjectName" type="xsd:string" />
+		<xsd:attribute name="IntObjectFormat" type="xsd:string" />
+		<xsd:attribute name="BusinessEvent" type="xsd:string" />
+		<xsd:attribute name="ErrorMessage" type="xsd:string" />
+		<xsd:attribute name="ErrorCode" type="xsd:string" />
+		<xsd:attribute name="Timestamp" type="xsd:string" />
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTmOrderCreateNew">
+		<xsd:sequence>
+			<xsd:element name="TmOrderEntry-OrdersIntegration"
+				type="xsdLocal:TmOrderEntry-OrdersIntegration" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TmOrderEntry-OrdersIntegration">
+		<xsd:sequence>
+			<xsd:element name="Id" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Created" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="AccountType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMAccountPriority" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Comments" type="xsdLocal:string250"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Description" type="xsdLocal:string255"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OrderNumber" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OrderPriority" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="OrderType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Status" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMSegmentGroup" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMExternalSource" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMNetworkOrder" type="xsdLocal:string1"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMHSBABTUFlag" type="xsdLocal:string1"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMRelocateSlotType" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ListOfTmOrderEntry-LineItemsIntegration"
+				type="xsdLocal:ListOfTmOrderEntry-LineItemsIntegration" minOccurs="0"
+				maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTmOrderEntry-LineItemsIntegration">
+		<xsd:sequence>
+			<xsd:element name="TmOrderEntry-LineItemsIntegration"
+				type="xsdLocal:TmOrderEntry-LineItemsIntegration" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TmOrderEntry-LineItemsIntegration">
+		<xsd:sequence>
+			<xsd:element name="OrderLineItemId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ActionCode" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMHSBANetworkId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMHSBAAssetServiceInstanceId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="NetworkElementType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PartNumber" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="PreviousServiceId" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Product" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ProductType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ServiceId" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Status" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMSiteAbbreviation" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMMRCPriceOverrideFlag" type="xsdLocal:string1"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMReservationStatus" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMServiceNumberType" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMServiceInstanceId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentMaterialId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMRequestedRFSDate" type="xsdLocal:string20"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="NetworkId" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPrimaryUPEId" type="xsdLocal:string15"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPortGroup" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentName" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMReuseExistingUPEPort" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPrimaryUPEName" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPrimaryCPEName" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPrimaryCPEId" type="xsdLocal:string15"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMOrderSubType" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMUPECollectionFlag" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMUPECPEName" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMSiteNameExchangeId" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMProjectMemberId" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMHSBAServiceType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentManufacturer" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentModel" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMMACAddress" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMP2PLegID" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMAssetStatus" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPrimaryMSEName" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPOPId" type="xsdLocal:string15"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPrimaryNPEEPEName" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentId" type="xsdLocal:string15"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TmAtaFlag" type="xsdLocal:string1"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMProductNetworkLayer" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMProductCode" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMIPMSANName" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPSTNNumber" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMProductReleaseIndicator" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMPortBundling" type="xsdLocal:string1"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ListOfTmCutAssetMgmt-ServiceMeterIntegration"
+				type="xsdLocal:ListOfTmCutAssetMgmt-ServiceMeterIntegration"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ListOfTmCutAssetMgmt-ServiceMeterIntegrationAta"
+				type="xsdLocal:ListOfTmCutAssetMgmt-ServiceMeterIntegrationAta"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTmCutAssetMgmt-ServiceMeterIntegration">
+		<xsd:sequence>
+			<xsd:element name="TmCutAssetMgmt-ServiceMeterIntegration"
+				type="xsdLocal:TmCutAssetMgmt-ServiceMeterIntegration" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TmCutAssetMgmt-ServiceMeterIntegration">
+		<xsd:sequence>
+			<xsd:element name="ServicePointInstanceId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="InstallDate" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ProductName" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ServicePointId" type="xsdLocal:string100"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ServiceType" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Status2" type="xsd:string" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="TMReservationId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="UninstallDate" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMBTUCollectionFlag" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentManufacturer" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMEquipmentModel" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMNewBTUFlag" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMServiceInstanceId" type="xsdLocal:string30"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMMACAddress" type="xsdLocal:string50"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ListOfTmAssetMgmt-AssetXaIntegration"
+				type="xsdLocal:ListOfTmAssetMgmt-AssetXaIntegration" minOccurs="0"
+				maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTmCutAssetMgmt-ServiceMeterIntegrationAta">
+		<xsd:sequence>
+			<xsd:element name="TmCutAssetMgmt-ServiceMeterIntegrationAta"
+				type="xsdLocal:TmCutAssetMgmt-ServiceMeterIntegrationAta" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TmCutAssetMgmt-ServiceMeterIntegrationAta">
+		<xsd:sequence>
+			<xsd:element name="ServicePointInstanceId" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ProductName" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ServiceType" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Status2" type="xsd:string" minOccurs="0"
+				maxOccurs="1" />
+			<xsd:element name="TMATACollectionFlag" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMReservationId" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="TMServiceInstanceId" type="xsd:string"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTmAssetMgmt-AssetXaIntegration">
+		<xsd:sequence>
+			<xsd:element name="TmAssetMgmt-AssetXaIntegration"
+				type="xsdLocal:TmAssetMgmt-AssetXaIntegration" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TmAssetMgmt-AssetXaIntegration">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsdLocal:string75"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="Value" type="xsdLocal:string255"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="string250">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="250" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string50">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string255">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string75">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="75" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string15">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string30">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string100">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string1">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="1" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string20">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,162 @@
+<jxb:bindings version="1.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<jxb:bindings schemaLocation="../xsd/BE023_ResourceAvailabilityCheckR2_v0.6.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.resourceavailability" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE025ServiceabilityCheck.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.serviceability" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE222_CustomerProfileRetrieve v2.5.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.customerprofileretrieve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE281_ServicePointCreateR2 v1.8.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.servicepointcreate" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE318_ServicePointDetailsUpdate v0.9.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.servicepointdetailsupdate" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE538_SBLAddressRetrieve v1.5.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.sbladdressretrieve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE571_SBLAddressCreate_v1.0.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.sbladdresscreate" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE971_2_ValidateFraudCAMSAccount.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.validatefraudcamsaccount" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE971_ValidateFraudCAMSCustomer.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.validatefraudcamscustomer" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE278_CustomerCreateCRM v2.5.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.customercreatecrm" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE610_AppointmentQueryPortalSWIFT v0.2.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.appointmentAvailablity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE073_ServiceNumberSearchR2_v0.1.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.servicenumbersearch" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE128ServiceNumberReserve_Siebel_IS_v0.5.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.servicenumberreserve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE048_ResourceReserve.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.resourcereserve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE625_SBLOpenOrderCheck v0.1.xsd"
+        node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="my.com.tm.dice.ipay.microservices.generated.sblopenordercheck" />
+        </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="../xsd/BE606_BookingInfoSendSWIFT.xsd"
+        node="/xs:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="my.com.tm.dice.ipay.microservices.generated.bookinginfosendswift" />
+        </jxb:schemaBindings>
+    </jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE611_AppointmentBookingPortalSWIFT v0.3.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.appointmentBooking" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE613_SWIFTAppointmentCreateSbl v0.4.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.appointmentCreateSbl" />
+		</jxb:schemaBindings>
+	</jxb:bindings>	
+	<jxb:bindings schemaLocation="../xsd/BE612_NOVAIDResetSWIFT.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.novaIdResetSwift" />
+		</jxb:schemaBindings>
+	</jxb:bindings>	
+	<jxb:bindings schemaLocation="../xsd/BE279_BillingAccountCreateCRM v1.3.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.billingAccountCreate" />
+		</jxb:schemaBindings>
+	</jxb:bindings>		
+
+	<jxb:bindings schemaLocation="../xsd/BE134LoginUnreserve_Siebel_IS_v0.3.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.loginreserve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>	
+	<jxb:bindings schemaLocation="../xsd/BE229_OrderSubmitPortalRetail_v3.7.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.orderSubmitPortalRetail" />
+		</jxb:schemaBindings>
+	</jxb:bindings>	
+	<jxb:bindings schemaLocation="../xsd/BE973_iJoinOrderDetailRetrieve_eai.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="my.com.tm.dice.ipay.microservices.generated.orderdetailretrieve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+	<jxb:bindings schemaLocation="../xsd/BE224_OrderListRetrieve v2.3.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.customerorderretrieve" />
+		</jxb:schemaBindings>
+	</jxb:bindings>	
+	<jxb:bindings schemaLocation="../xsd/XSD_OpenAPI.xsd"
+		node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package
+				name="my.com.tm.dice.ipay.microservices.generated.sendsms" />
+		</jxb:schemaBindings>
+	</jxb:bindings>	
+</jxb:bindings>

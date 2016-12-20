@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/SBLAddressRetrieve"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hsbbportal.tm.com/xml/SBLAddressRetrieve"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="PortalMessage" type="xsdLocal:PortalMessage" />
+	<xsd:complexType name="PortalMessage">
+		<xsd:sequence>
+			<xsd:element name="Header" type="xsdLocal:Header" />
+			<xsd:element name="Request" type="xsdLocal:Request"
+				minOccurs="0" />
+			<xsd:element name="Response" type="xsdLocal:Response"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
+			<xsd:element name="BusinessEvent" type="xsd:string" />
+			<xsd:element name="Timestamp" type="xsd:string" />
+			<xsd:element name="MessageId" type="xsd:string" />
+			<xsd:element name="ReqResType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Request" />
+						<xsd:enumeration value="Response" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ErrorCode" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="ErrorMessage" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="City" type="xsd:string" />
+			<xsd:element name="Country" type="xsd:string" />
+			<xsd:element name="PostalCode" type="xsd:string" />
+			<xsd:element name="State" type="xsd:string" />
+			<xsd:element name="Section" type="xsd:string" />
+			<xsd:element name="UnitNumber" type="xsd:string" />
+			<xsd:element name="AddressId" type="xsd:string" />
+			<xsd:element name="AddressType" type="xsd:string" />
+			<xsd:element name="StreetName" type="xsd:string" />
+			<xsd:element name="BuildingName" type="xsd:string" />
+			<xsd:element name="FloorNo" type="xsd:string" />
+			<xsd:element name="StreetType" type="xsd:string" />
+			<xsd:element name="SmartedFlag" type="xsd:string" />
+			<xsd:element name="SmartInOtherOrder" type="xsd:string" />
+			<xsd:element name="ResellerID" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="SiebelAddress">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="SiebelAddressId" type="xsd:string" />
+						<xsd:element name="OrderExist" type="xsd:string" />
+						<xsd:element name="City" type="xsd:string" />
+						<xsd:element name="Country" type="xsd:string" />
+						<xsd:element name="PostalCode" type="xsd:string" />
+						<xsd:element name="State" type="xsd:string" />
+						<xsd:element name="Section" type="xsd:string" />
+						<xsd:element name="UnitNumber" type="xsd:string" />
+						<xsd:element name="AddressId" type="xsd:string" />
+						<xsd:element name="StreetName" type="xsd:string" />
+						<xsd:element name="BuildingName" type="xsd:string" />
+						<xsd:element name="FloorNo" type="xsd:string" />
+						<xsd:element name="StreetType" type="xsd:string" />
+						<xsd:element name="SmartnessFlag" type="xsd:string" />
+						<xsd:element name="ResellerMatchFlag" type="xsd:string" />
+						<xsd:element name="OpenOrderFlag" type="xsd:string" />
+						<xsd:element name="OrderList" type="xsdLocal:OrderList"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrderList">
+		<xsd:sequence>
+			<xsd:element name="OrderID" type="xsd:string" />
+			<xsd:element name="CreateDate" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="OrderType" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="Status" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PackagePlan" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="SourcePortal" type="xsd:string" />
+			<xsd:element name="CustomerAccountName" type="xsd:string" />
+			<xsd:element name="AppointmentDate" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
+

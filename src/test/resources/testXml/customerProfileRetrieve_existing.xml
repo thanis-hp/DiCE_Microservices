@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PortalMessage>
+    <Header>
+        <BusinessEvent>CustomerProfileRetrieve</BusinessEvent>
+        <Timestamp>07/24/2030 11:45:45</Timestamp>
+        <ReqResType>Response</ReqResType>
+        <ErrorCode/>
+        <ErrorMessage/>
+    </Header>
+    <Response>
+        <CustomerAccount>
+            <AccountNo>1-27K7KFJ</AccountNo>
+            <CustomerName>TS SHRIRAM</CustomerName>
+            <SegmentCode>R40</SegmentCode>
+            <SegmentGroup>Consumer</SegmentGroup>
+            <PrimaryIDType>New NRIC</PrimaryIDType>
+            <PrimaryIDNo>650909-05-4567</PrimaryIDNo>
+            <TMExternalSource>Customer Portal</TMExternalSource>
+            <Blacklist>Not Applicable</Blacklist>
+            <MobilePhone>012432983</MobilePhone>
+            <OfficePhone/>
+            <HomePhone/>
+            <ContactMethod>SMS</ContactMethod>
+            <Industry/>
+            <EmailAddress>tsshriram@hotmail.com</EmailAddress>
+            <FaxNumber/>
+            <ExpiryDate/>
+            <CustomerAddress>
+                <AddressType/>
+                <HouseUnitLot>17</HouseUnitLot>
+                <Postcode>40000</Postcode>
+                <Floor/>
+                <BuildingName/>
+                <StreetType>JALAN</StreetType>
+                <StreetName>PLUMBUM 7/101D</StreetName>
+                <Section>SEKSYEN 7</Section>
+                <City>SHAH ALAM</City>
+                <State>SELANGOR</State>
+                <Country>MALAYSIA</Country>
+                <TMAddressID>1-S1KXKP</TMAddressID>
+            </CustomerAddress>
+            <Priority>P04</Priority>
+            <PassportCountry/>
+            <RegisteredAddress>
+                <AddressType/>
+                <HouseUnitLot>17</HouseUnitLot>
+                <Postcode>40000</Postcode>
+                <Floor/>
+                <BuildingName/>
+                <StreetType>JALAN</StreetType>
+                <StreetName>PLUMBUM 7/101D</StreetName>
+                <Section>SEKSYEN 7</Section>
+                <City>SHAH ALAM</City>
+                <State>SELANGOR</State>
+                <Country>MALAYSIA</Country>
+                <TMAddressID>1-S1KXKP</TMAddressID>
+            </RegisteredAddress>
+            <ServiceProvider/>
+            <LARSRewardsNo/>
+            <LARSMembershipNo/>
+            <LARSMemberCategory/>
+            <LARSMemberStatus/>
+            <LARSTotalPoint/>
+            <LARSTotalPointDate/>
+            <LARSPointExpiry/>
+            <LARSPointExpiryDate/>
+            <LARSLastEarnTrnDate/>
+            <LARSLastEarnTrnDesc/>
+            <LARSLastEarnTrnPoint/>
+            <LARSLastRedemTrnDate/>
+            <LARSLastRedemTrnDesc/>
+            <LARSLastRedemTrnPoint/>
+            <LARSProfileEnrollFlag/>
+            <TMBRNSubType/>
+        </CustomerAccount>
+        <NonConsumerDemographics>
+            <RetailIndustry/>
+            <NatureOfBusiness/>
+            <CompanyAnnualRevenue/>
+            <NoOfEmployees/>
+            <NoOfBranches/>
+            <HeadquarterLocation/>
+        </NonConsumerDemographics>
+        <ConsumerDemographics>
+            <Gender/>
+            <Race>No Answer Given</Race>
+            <Occupation>No Answer Given</Occupation>
+            <JobTitle/>
+            <DateOfBirth>05/04/1969</DateOfBirth>
+            <Nationality>No Answer Given</Nationality>
+            <MaritalStatus>No Answer Given</MaritalStatus>
+            <ChildrenInAge7to21>
+                <Name>No Answer Given</Name>
+                <Value>No Answer Given</Value>
+            </ChildrenInAge7to21>
+            <MonthlyHouseholdIncome>No Answer Given</MonthlyHouseholdIncome>
+            <HouseholdSize>No Answer Given</HouseholdSize>
+            <HouseOwnership>No Answer Given</HouseOwnership>
+            <StayingWith/>
+            <PrimaryFestiveCelebration/>
+            <Hobbies>
+                <RowId>1-27K7KFQ</RowId>
+                <Name>No Answer Given</Name>
+                <Value>No Answer Given</Value>
+            </Hobbies>
+            <DeviceOwnership>
+                <RowId>1-27K7KFP</RowId>
+                <Name>No Answer Given</Name>
+                <Value>No Answer Given</Value>
+            </DeviceOwnership>
+        </ConsumerDemographics>
+        <ContactList>
+            <Contact>
+                <PrimaryContactIndicator>Y</PrimaryContactIndicator>
+                <ContactPrimaryIdType/>
+                <ContactPrimaryIdNo/>
+                <ContactID>1-27K7KFL</ContactID>
+                <ContactName>TS SHRIRAM</ContactName>
+                <OfficePhone/>
+                <HomePhone/>
+                <MobilePhone>012432983</MobilePhone>
+                <PortalID/>
+                <EmailAddress>tsshriram@hotmail.com</EmailAddress>
+                <Designation/>
+            </Contact>
+        </ContactList>
+        <CommitmentPeriodList>
+            <CommitmentPeriod>
+                <CommitmentName/>
+                <CommitmentDuration/>
+            </CommitmentPeriod>
+        </CommitmentPeriodList>
+        <BillingList>
+            <BillingAccount>
+                <BillingAddress>
+                    <TMAddressID/>
+                </BillingAddress>
+            </BillingAccount>
+        </BillingList>
+    </Response>
+</PortalMessage>

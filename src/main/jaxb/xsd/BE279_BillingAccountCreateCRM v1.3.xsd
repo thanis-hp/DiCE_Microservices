@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsdLocal="http://hsbbportal.tm.com/xml/BillingAccountCreateCRM" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hsbbportal.tm.com/xml/BillingAccountCreateCRM" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="PortalMessage" type="xsdLocal:PortalMessage"/>
+	<xsd:complexType name="PortalMessage">
+		<xsd:sequence>
+			<xsd:element name="Header" type="xsdLocal:Header"/>
+			<xsd:element name="Request" type="xsdLocal:Request" minOccurs="0"/>
+			<xsd:element name="Response" type="xsdLocal:Response" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
+			<xsd:element name="BusinessEvent" type="xsd:string"/>
+			<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="MessageId" type="xsd:string" />
+			<xsd:element name="ReqResType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Request"/>
+						<xsd:enumeration value="Response"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ErrorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ErrorMessage" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Request">
+		<xsd:sequence>
+			<xsd:element name="SourcePortal" type="xsd:string"/>
+			<xsd:element name="CustomerAccountNo" type="xsd:string"/>
+			<xsd:element name="CustomerContactID" type="xsd:string"/>
+			<xsd:element name="BillCycle">
+				<xsd:annotation>
+					<xsd:documentation>The Bill Cycle is to be defaulted</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BillFrequency">
+				<xsd:annotation>
+					<xsd:documentation>The Bill Frequency is to be defaulted</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Monthly"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BillType">
+				<xsd:annotation>
+					<xsd:documentation>The Bill Type is to be defaulted</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Detail"/>
+						<xsd:enumeration value="Summary"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PaymentType">
+				<xsd:annotation>
+					<xsd:documentation>The Payment Type is to be defaulted</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Cash"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ExchangePTT" type="xsd:string"/>
+			<xsd:element name="SalesPTT" type="xsd:string"/>
+			<xsd:element name="CurrencyCode" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The Currency Code is to be defaulted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PriceList" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>The Price List is to be defaulted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BillingName" type="xsd:string"/>
+			<xsd:element name="BillingEmail" type="xsd:string"/>
+			<xsd:element name="BillingEmailCC" type="xsd:string"/>
+			<xsd:element name="BillingMobileNumber" type="xsd:string"/>
+			<xsd:element name="BillMedia" type="xsd:string"/>
+			<xsd:element name="BillLanguage" type="xsd:string"/>
+			<xsd:element name="BillingAddress" type="xsdLocal:Address"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element name="BillingAccountRowId" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>BillingAccountRowId to be used during order create</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BillingProfileRowId" type="xsd:string"/>
+			<xsd:element name="BillingAccountNo" type="xsd:string"/>
+			<xsd:element name="Status" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Address">
+		<xsd:sequence>
+			<xsd:element name="AddressType" type="xsd:string"/>
+			<xsd:element name="HouseUnitLot" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Floor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BuildingName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StreetType" type="xsd:string"/>
+			<xsd:element name="StreetName" type="xsd:string"/>
+			<xsd:element name="Section" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="City" type="xsd:string"/>
+			<xsd:element name="State" type="xsd:string"/>
+			<xsd:element name="Postcode" type="xsd:integer"/>
+			<xsd:element name="Country" type="xsd:string"/>
+			<xsd:element name="SiebelAddressRowId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
